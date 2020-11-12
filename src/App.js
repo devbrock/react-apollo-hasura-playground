@@ -8,9 +8,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <h1>Hasura + Apollo + React</h1>
-        <Users />
-        <Posts />
+        <div className="App-header">
+          <h1>Hasura + Apollo + React</h1>
+          <Users />
+          <Posts />
+        </div>
       </div>
     </ApolloProvider>
   );
