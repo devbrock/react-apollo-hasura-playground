@@ -11,7 +11,11 @@ const GET_USERS = gql`
 `;
 
 export const Users = () => {
-    const { loading, error, data } = useQuery(GET_USERS);
+    const { loading, error, data } = useQuery(GET_USERS,
+        // Polling will "refetch" the data every n miliseconds (500 = 0.5s)
+        // Keep in mind that the free cloud tear only lets you make 60 requests in a minute.
+        // { pollInterval: 5000 }
+    );
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
 
