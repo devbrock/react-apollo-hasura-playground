@@ -12,18 +12,20 @@ const GET_USERS = gql`
 
 export const Users = () => {
     const { loading, error, data } = useQuery(GET_USERS);
-    console.log('data', data)
-
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
 
+    return (
+        <>
+            <h2>Users:</h2>
+            <ul>
+                {data.user.map(user => (
 
-    return data.user.map(({ id, name }) => (
-        <div key={id}>
-            <p>
-                {id}: {name}
-            </p>
-        </div>
-    ));
+                    <li key={user.id}>{user.name}</li>
+
+                ))}
+            </ul>
+        </>
+    );
 }
 
