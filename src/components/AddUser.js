@@ -9,12 +9,11 @@ const ADD_USER = gql`
     }
   }
 }
-
 `;
 
 export function AddUser() {
     let input;
-    const [insert_user, { data }] = useMutation(ADD_USER, { refetchQueries: () => ['Users'] });
+    const [insert_user, { data }] = useMutation(ADD_USER, { refetchQueries: () => ['Users'] }); //when this mutation runs it will refetch the users query
 
     return (
         <div>
@@ -30,7 +29,7 @@ export function AddUser() {
                         input = node;
                     }}
                 />
-                <button type="submit">Add Todo</button>
+                <button type="submit">Add User</button>
             </form>
         </div>
     );
